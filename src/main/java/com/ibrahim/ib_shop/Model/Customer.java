@@ -2,7 +2,6 @@ package com.ibrahim.ib_shop.Model;
 
 import jakarta.persistence.*;
 
-
 @Entity
 @Table(name="customer")
 public class Customer {
@@ -17,19 +16,20 @@ public class Customer {
     private String password;
 
     @Column(nullable = false)
-    private String emel;
+    private String email;
 
 
     private String address;
+
     private int age;
 
     public Customer() {
     }
 
-    public Customer(Long customerId, int age, String emel, String address, String password, String username) {
+    public Customer(Long customerId, int age, String email, String address, String password, String username) {
         this.customerid = customerId;
         this.age = age;
-        this.emel = emel;
+        this.email = email;
         this.address = address;
         this.password = password;
         this.username = username;
@@ -60,11 +60,11 @@ public class Customer {
     }
 
     public String getEmel() {
-        return emel;
+        return email;
     }
 
-    public void setEmel(String emel) {
-        this.emel = emel;
+    public void setEmel(String email) {
+        this.email = email;
     }
 
 
