@@ -19,17 +19,18 @@ public class Customer {
     private String email;
 
 
-    private String address;
+    private String address, phone;
 
     private int age;
 
     public Customer() {
     }
 
-    public Customer(Long customerId, int age, String email, String address, String password, String username) {
+    public Customer(Long customerId, int age, String email, String phone, String address, String password, String username) {
         this.customerid = customerId;
         this.age = age;
         this.email = email;
+        this.phone = phone;
         this.address = address;
         this.password = password;
         this.username = username;
@@ -59,12 +60,20 @@ public class Customer {
         this.password = password;
     }
 
-    public String getEmel() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmel(String email) {
+    public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
