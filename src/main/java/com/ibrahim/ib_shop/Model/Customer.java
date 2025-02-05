@@ -1,6 +1,7 @@
 package com.ibrahim.ib_shop.Model;
 
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name="customer")
@@ -36,6 +37,13 @@ public class Customer {
         this.username = username;
     }
 
+    public Customer(Long customerid, String username, String password, String email) {
+        this.customerid = customerid;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
     public Long getCustomerid() {
         return customerid;
     }
@@ -57,7 +65,8 @@ public class Customer {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     public String getEmail() {

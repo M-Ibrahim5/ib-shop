@@ -2,10 +2,14 @@ package com.ibrahim.ib_shop.Service;
 
 import com.ibrahim.ib_shop.DTO.CustomerDTO;
 import com.ibrahim.ib_shop.Model.Customer;
+import com.ibrahim.ib_shop.Model.UserPrinciple;
 import com.ibrahim.ib_shop.Repository.CustomerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -78,4 +82,5 @@ public class CustomerService {
             throw new EntityNotFoundException("Customer with id "+custId+" is not found");
         }
     }
+
 }
