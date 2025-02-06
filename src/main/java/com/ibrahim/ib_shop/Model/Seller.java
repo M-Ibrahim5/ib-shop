@@ -2,6 +2,9 @@ package com.ibrahim.ib_shop.Model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name="seller")
 public class Seller {
@@ -22,6 +25,9 @@ public class Seller {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL) // Relationship with products
+    private Set<Product> products = new HashSet<>(); // Initialize the set
 
 
     public Seller() {
@@ -73,5 +79,15 @@ public class Seller {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "sellerId=" + sellerId +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

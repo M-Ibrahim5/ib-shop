@@ -18,14 +18,19 @@ public class Admin {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
 
     public Admin() {
     }
 
-    public Admin(Long adminId, String username, String password, String email) {
+    public Admin(Long adminId, String username, String password, String email, Role role) {
         this.adminId = adminId;
         this.username = username;
         this.password = password;
+        this.role = role;
         this.email = email;
     }
 
@@ -59,5 +64,13 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

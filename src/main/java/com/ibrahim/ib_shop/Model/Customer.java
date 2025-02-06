@@ -19,6 +19,10 @@ public class Customer {
     @Column(nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
 
     private String address, phone;
 
@@ -27,11 +31,12 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Long customerId, int age, String email, String phone, String address, String password, String username) {
+    public Customer(Long customerId, int age, String email, String phone, String address, String password, String username, Role role) {
         this.customerid = customerId;
         this.age = age;
         this.email = email;
         this.phone = phone;
+        this.role = role;
         this.address = address;
         this.password = password;
         this.username = username;
@@ -101,6 +106,14 @@ public class Customer {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
 
